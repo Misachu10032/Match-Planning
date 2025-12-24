@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
           geistSans.variable,
           geistMono.variable,
           "min-h-dvh bg-gray-50 text-gray-900 antialiased",
-          "dark:bg-neutral-950 dark:text-neutral-100",
         ].join(" ")}
       >
         {children}

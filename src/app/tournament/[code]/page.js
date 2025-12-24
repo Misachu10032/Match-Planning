@@ -3,7 +3,7 @@ import GamesGrid from "@/components/GamesGrid";
 
 import { requireTournamentContext } from "@/lib/tournamentAuth";
 import { fetchGames, fetchTeams, fetchTournament, buildTeamCodeMap } from "@/lib/tournamentData";
-import { computeWinsByTeamId } from "@/lib/standings";
+import { computeWinsByTeamId,computeTotalPointsByTeamId } from "@/lib/standings";
 
 export default async function TournamentPage({ params }) {
   // ✅ Next 15: params can be a Promise
@@ -20,11 +20,12 @@ export default async function TournamentPage({ params }) {
 
   const teamCodeById = buildTeamCodeMap(teams);
   const winsByTeamId = computeWinsByTeamId(games);
-
+  const totalPointsByTeamId = computeTotalPointsByTeamId(games);
   const standings = teams.map((t) => ({
     team_id: t.id,
     team_code: t.code,
     wins: winsByTeamId[t.id] ?? 0,
+    total_points: totalPointsByTeamId[t.id] ?? 0,
   }));
 
   return (

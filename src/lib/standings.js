@@ -20,3 +20,16 @@ export function computeWinsByTeamId(games) {
 
   return wins;
 }
+export function computeTotalPointsByTeamId(games) {
+  const totals = {};
+
+  for (const g of games) {
+    const a = Number(g.team_a_score ?? 0);
+    const b = Number(g.team_b_score ?? 0);
+
+    totals[g.team_a_id] = (totals[g.team_a_id] ?? 0) + a;
+    totals[g.team_b_id] = (totals[g.team_b_id] ?? 0) + b;
+  }
+
+  return totals;
+}

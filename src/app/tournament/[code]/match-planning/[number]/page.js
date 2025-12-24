@@ -1,4 +1,4 @@
-import MatchPlanningDisplay from "@/components/MatchplanningDisplay";
+import MatchplanningDisplay from "@/components/MatchplanningDisplay";
 import { requireTournamentContext } from "@/lib/tournamentAuth";
 import { fetchMatchPlanningPageData } from "@/lib/matchPlanningData";
 
@@ -62,7 +62,8 @@ export default async function MatchPlanningPage({ params }) {
         </header>
 
         {/* Two side-by-side lineups (Team A vs Team B) */}
-        <MatchPlanningDisplay
+        <MatchplanningDisplay
+          gameId={data.game.id} 
           teams={data.teams}
           playersByTeamId={data.playersByTeamId}
           planByTeamId={data.planByTeamId}

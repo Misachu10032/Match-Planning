@@ -53,7 +53,7 @@ function PlayerRow({
             <span className="text-sm font-semibold text-gray-800">#{idx + 1}</span>
             <span className="truncate text-sm text-gray-800">{player.name}</span>
           </div>
-          <div className="mt-0.5 text-xs text-gray-500">Roster: P{player.position}</div>
+          <div className="mt-0.5 text-xs text-gray-500">Player{player.position}</div>
         </div>
 
         {/* ✅ Show ↑ ↓ ONLY when drag is disabled (iPhone / touch) */}

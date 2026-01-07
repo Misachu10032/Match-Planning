@@ -1,4 +1,4 @@
-import MatchplanningDisplay from "@/components/MatchplanningDisplay";
+import MatchplanningDisplay from "@/components/MatchPlanningDisplay/MatchPlanningDisplay";
 import { requireTournamentContext } from "@/lib/tournamentAuth";
 import { fetchMatchPlanningPageData } from "@/lib/matchPlanningData";
 import MatchScoreboard from "@/components/MatchScoreBoard/MatchScoreboard";

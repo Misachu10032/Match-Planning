@@ -1,5 +1,5 @@
 // components/MatchPlanningDisplay.js
-import TeamLineupCard from "@/components/TeamLineupCard";
+import TeamLineupCard from "@/components/MatchPlanningDisplay/TeamLineupCard";
 import { buildOrderedPlayers } from "@/lib/buildMatchPlanningView";
 
 export default function MatchPlanningDisplay({

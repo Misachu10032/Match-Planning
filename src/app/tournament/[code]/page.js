@@ -1,5 +1,5 @@
 import StandingsCards from "@/components/StandingsCards";
-import GamesGrid from "@/components/GamesGrid";
+import GamesGrid from "@/components/GamesGrid/GamesGrid";
 
 import { requireTournamentContext } from "@/lib/tournamentAuth";
 import { fetchGames, fetchTeams, fetchTournament, buildTeamCodeMap } from "@/lib/tournamentData";

@@ -15,7 +15,7 @@ export async function fetchTeams(tournamentId) {
 export async function fetchGames(tournamentId) {
   const { data, error } = await supabaseAdmin
     .from("games")
-    .select("id, number, name, team_a_id, team_b_id, team_a_score, team_b_score")
+    .select("id, number, name, team_a_id, team_b_id, team_a_score, team_b_score,if_team_a_won")
     .eq("tournament_id", tournamentId)
     .order("number");
 

@@ -24,6 +24,14 @@ export async function POST(req) {
     const teamAScore = Number(body.teamAScore);
     const teamBScore = Number(body.teamBScore);
 
+    // 👇 NEW: winner field
+    const ifTeamAWon =
+      body.ifTeamAWon === true
+        ? true
+        : body.ifTeamAWon === false
+        ? false
+        : null;
+
     if (!Number.isFinite(gameId) || gameId <= 0) {
       return NextResponse.json({ error: "Invalid gameId" }, { status: 400 });
     }
@@ -45,15 +53,19 @@ export async function POST(req) {
       return NextResponse.json({ error: gameErr.message }, { status: 500 });
     }
     if (game.tournament_id !== tournamentId) {
-      return NextResponse.json({ error: "Unauthorized tournament access" }, { status: 403 });
+      return NextResponse.json(
+        { error: "Unauthorized tournament access" },
+        { status: 403 }
+      );
     }
 
-    // 4) Update scores
+    // 4) Update scores + winner
     const { error: upErr } = await supabaseAdmin
       .from("games")
       .update({
         team_a_score: teamAScore,
         team_b_score: teamBScore,
+        if_team_a_won: ifTeamAWon, // 👈 NEW
       })
       .eq("id", gameId);
 
@@ -63,6 +75,9 @@ export async function POST(req) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    return NextResponse.json({ error: "Server error", detail: String(err) }, { status: 500 });
+    return NextResponse.json(
+      { error: "Server error", detail: String(err) },
+      { status: 500 }
+    );
   }
 }

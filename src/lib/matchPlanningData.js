@@ -5,7 +5,7 @@ export async function fetchMatchPlanningPageData({ tournamentId, gameNumber }) {
   // 1) game
   const { data: game, error: gameErr } = await supabaseAdmin
     .from("games")
-    .select("id, number, name, team_a_id, team_b_id, team_a_score, team_b_score")
+    .select("id, number, name, team_a_id, team_b_id, team_a_score, team_b_score,if_team_a_won")
     .eq("tournament_id", tournamentId)
     .eq("number", gameNumber)
     .single();

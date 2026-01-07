@@ -53,6 +53,7 @@ export default async function MatchPlanningPage({ params }) {
             teamB={data.teams.b}
             initialA={data.game.team_a_score}
             initialB={data.game.team_b_score}
+            initialIfTeamAWon={data.game.if_team_a_won}
           />
         </header>
 

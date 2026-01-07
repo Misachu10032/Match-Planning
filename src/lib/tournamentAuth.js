@@ -6,7 +6,7 @@ export async function requireTournamentContext(routeCode) {
   const cookieStore = await cookies(); // ✅
   const cookieCode = cookieStore.get("tournament_code")?.value;
   const tournamentId = cookieStore.get("tournament_id")?.value;
-
+  console.log({ cookieCode, tournamentId, routeCode });
   if (!tournamentId || cookieCode !== routeCode) {
     redirect("/");
   }
